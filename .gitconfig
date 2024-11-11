@@ -5,7 +5,7 @@
   d = difftool	
   hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
   rb = rebase
-	st = status
+  st = status
   stat = log --stat --no-merges --max-count=1
 [diff]
   tool = vimdiff
@@ -13,17 +13,20 @@
   prompt = false
 
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
+  tool = vimdiff
+  conflictstyle = diff3
 [mergetool]
   prompt = false
-
 
 [push]
   default = current
 [pull]
-	default = current
+  default = current
 [core]
-	editor = vim
+  editor = vim
 [fetch]
-	prune = true
+  prune = true
+
+[user]
+  name = wf34
+  email = wf34@users.noreply.github.com
