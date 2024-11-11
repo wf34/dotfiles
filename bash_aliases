@@ -27,6 +27,14 @@ rinfoh() {
   rinfo "$@" | head
 }
 
+function pull_wiki() {
+  rsync -Pvaz wf34ws:wiki/ "$HOME/projects/wiki"
+}
+
+function push_wiki() {
+  rsync -Pvaz "$HOME/projects/wiki/" wf34ws:wiki
+}
+
 ###############################################################################
 # cmart_cd
 ###############################################################################
