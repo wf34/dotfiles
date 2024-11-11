@@ -71,7 +71,7 @@
         Plug 'kopischke/vim-fetch'
         Plug 'ConradIrwin/vim-bracketed-paste'
         Plug 'lervag/vimtex', { 'for' : ['tex', 'bib'] }
-        Plug 'jeaye/color_coded', { 'for' : ['c', 'cpp'] }
+        Plug 'lervag/wiki.vim'
     call plug#end()
 
     augroup load_ycm
