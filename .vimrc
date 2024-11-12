@@ -170,10 +170,10 @@
      "-- vim-numbertoggle -------------------------------------------------
         nnoremap <Leader><C-n> : set relativenumber!<CR>
 
-    "-- color_coded -------------------------------------------------------
-        let g:color_coded_enabled = 0
-        let g:color_coded_filetypes = ['c', 'cpp', 'h', 'hpp', 'cxx', 'cc']
-
     "-- command-t -------------------------------------------------------
       let g:CommandTCancelMap = ['<ESC>', '<C-c>']
       let g:CommandTMaxFiles=200000
+      nnoremap <Leader><C-t> : CommandTBuffer<CR>
+
+    "-- wiki.vim --------------------------------------------------------
+      let g:wiki_root = '~/projects/wiki'
