@@ -35,32 +35,24 @@ function push_wiki() {
   rsync -Pvaz "$HOME/projects/wiki/" wf34ws:wiki
 }
 
-###############################################################################
-# cmart_cd
-###############################################################################
+# task warrior
+alias t='task'
+alias tls='t +OVERDUE or +MONTH ls'
+alias tpt='t project:tvko'
+alias tpd='t project:idev'
+alias tpr='t project:research'
+alias tpy='t project:diary'
 
-# cd up to n dirs
-# using:  cd.. 10   cd.. dir
-function cd_up() {
-  case $1 in
-    *[!0-9]*)                                          # if no a number
-      cd $( pwd | sed -r "s|(.*/$1[^/]*/).*|\1|" )     # search dir_name in current path, if found - cd to it
-      ;;                                               # if not found - not cd
-    *)
-      cd $(printf "%0.0s../" $(seq 1 $1));             # cd ../../../../  (N dirs)
-    ;;
-  esac
+# smart cd up
+function goUp
+{
+  lvls_to_go=$1
+  for i in $(seq "${lvls_to_go}"); do cd ..; done
 }
-alias 'cd..'='cd_up'                                # can not name function 'cd..'
-alias '..'='cd..'
-alias '..2'='cd.. 2'
-alias '..3'='cd.. 3'
-alias '..4'='cd.. 4'
-alias '..5'='cd.. 5'
+alias ".."="goUp 1"
+for i in $(seq 2 10); do alias "..${i}"="goUp ${i}"; done
 
-###############################################################################
 # persistent history 
-###############################################################################
 HISTTIMEFORMAT="%d/%m/%y %T "
 log_bash_persistent_history()
 {
@@ -76,7 +68,6 @@ log_bash_persistent_history()
   fi
 }
 
-# Stuff to do on PROMPT_COMMAND
 run_on_prompt_command()
 {
         log_bash_persistent_history
@@ -96,3 +87,5 @@ if [[ -t 0 && $- = *i* ]]
 then
     stty -ixon
 fi
+
+export PATH="${PATH}:${HOME}/.local/bin"
