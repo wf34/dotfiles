@@ -1,0 +1,24 @@
+set v15-compat
+set verbose
+
+set sendcharsets=utf-8
+set reply-in-same-charset
+set folder=mail
+set fullnames
+
+set sendwait
+#set from="Taskus Tuskinen tasks@wf34.ws"
+set tls-verify=strict
+set ssl-ca-no-defaults
+set tls-ca-file=/etc/ssl/certs/ca-certificates.crt
+set ssl-protocol=-ALL,+TLSv1.2
+set ssl-cipher-list=TLSv1.2:!aNULL:!eNULL:@STRENGTH
+set tls-config-pairs=MinProtocol=TLSv1.2
+
+# percent-encoded USER:PASS@HOST:PORT
+# sender as address@domain
+
+set mta=smtps://u:x@h:p \
+	smpt-auth=login \
+	smtp-use-starttls \
+	from=sender
