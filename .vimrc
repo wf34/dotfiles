@@ -72,6 +72,8 @@
         Plug 'ConradIrwin/vim-bracketed-paste'
         Plug 'lervag/vimtex', { 'for' : ['tex', 'bib'] }
         Plug 'lervag/wiki.vim'
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf.vim'
     call plug#end()
 
     augroup load_ycm
