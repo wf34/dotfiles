@@ -15,7 +15,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias l='ls -alF'
+alias l='ls -alFh'
 alias la='ls -A'
 alias ll='ls -CF'
 
@@ -28,11 +28,11 @@ rinfoh() {
 }
 
 function pull_wiki() {
-  rsync -Pvaz wf34ws:wiki/ "$HOME/projects/wiki"
+  rsync -Pvazu wf34ws:wiki/ "$HOME/projects/wiki"
 }
 
 function push_wiki() {
-  rsync -Pvaz "$HOME/projects/wiki/" wf34ws:wiki
+  rsync -Pvazu "$HOME/projects/wiki/" wf34ws:wiki
 }
 
 # task warrior
