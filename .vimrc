@@ -63,11 +63,9 @@
 "## PLUGINS CONFIGURATION ##################################################
     call plug#begin('~/.vim/plugged')
         Plug 'Valloric/YouCompleteMe', { 'on' : [] }
-        Plug 'wincent/command-t'
         Plug 'itchyny/lightline.vim'
         Plug 'rking/ag.vim'
         Plug 'jeffkreeftmeijer/vim-numbertoggle'
-        Plug 'rafi/awesome-vim-colorschemes'
         Plug 'kopischke/vim-fetch'
         Plug 'ConradIrwin/vim-bracketed-paste'
         Plug 'lervag/vimtex', { 'for' : ['tex', 'bib'] }
@@ -83,7 +81,6 @@
 
 "## COLOR #########################################################
   set background=dark
-  colorscheme onehalfdark
   autocmd VimEnter * highlight Comment ctermbg=Black
   autocmd VimEnter * highlight Normal ctermbg=Black
   autocmd VimEnter * highlight NonText ctermbg=Black
@@ -172,10 +169,9 @@
      "-- vim-numbertoggle -------------------------------------------------
         nnoremap <Leader><C-n> : set relativenumber!<CR>
 
-    "-- command-t -------------------------------------------------------
-      let g:CommandTCancelMap = ['<ESC>', '<C-c>']
-      let g:CommandTMaxFiles=200000
-      nnoremap <Leader><C-t> : CommandTBuffer<CR>
-
     "-- wiki.vim --------------------------------------------------------
-      let g:wiki_root = '~/projects/wiki'
+        let g:wiki_root = '~/projects/wiki
+
+     "-- fzf.vim -------------------------------------------------
+        nnoremap <leader>t :Files<CR>
+        nnoremap <leader><C-t> :Buffers<CR>
