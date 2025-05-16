@@ -1,0 +1,14 @@
+# [Created by task 3.1.0 9/18/2024 19:21:23]
+data.location=/home/wf34/.task
+news.version=3.4.1
+
+alias.pj=project
+sync.server.client_id=?
+sync.encryption_secret=?
+sync.server.url=https:\/\/?
+
+report.clist.columns=id,project,due,description.truncated
+report.clist.description='a list with short description'
+report.clist.filter=status:pending
+report.clist.labels=ID,Project,Due,Description
+report.clist.sort=due+,project-
