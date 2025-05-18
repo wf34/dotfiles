@@ -37,11 +37,11 @@ function push_wiki() {
 
 # task warrior
 alias t='task'
-alias tls='t +OVERDUE or +MONTH ls'
 alias tpt='t project:tvko'
 alias tpd='t project:idev'
 alias tpr='t project:research'
 alias tpy='t project:diary'
+alias tpa='t project:anniversaries'
 
 # smart cd up
 function goUp
