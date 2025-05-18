@@ -1,4 +1,3 @@
-# [Created by task 3.1.0 9/18/2024 19:21:23]
 data.location=/home/wf34/.task
 news.version=3.4.1
 
@@ -12,3 +11,5 @@ report.clist.description='a list with short description'
 report.clist.filter=status:pending
 report.clist.labels=ID,Project,Due,Description
 report.clist.sort=due+,project-
+
+recurrence=off
