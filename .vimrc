@@ -103,12 +103,7 @@ if has("gui_running")
   set guioptions-=T
   set guioptions-=r
   set guioptions-=L
-  " Font. Very important.
-  if has('win32') || has('win64')
-      set guifont=Consolas:h12:cANSI
-  elseif has('unix')
-      set guifont=Iosevka\ Term\ Light\ 16
-  endif
+  set guifont=Iosevka\ Term\ Light\ 16
   " Try it with no mouse
   set mousehide
   " in case rightclick needed
