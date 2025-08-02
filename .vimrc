@@ -3,6 +3,9 @@ set hidden
 set autowrite
 set noshowmode
 
+" primary *and* clipboard
+set clipboard=unnamed,unnamedplus
+
 syntax on
 filetype plugin on
 filetype indent off
