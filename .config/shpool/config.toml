@@ -1,0 +1,6 @@
+prompt_prefix = "[$SHPOOL_SESSION_NAME] "
+shell = "bash"
+
+[[keybinding]]
+binding = "Ctrl-b d"
+action = "detach"
