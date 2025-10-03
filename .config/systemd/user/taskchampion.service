@@ -1,0 +1,11 @@
+[Unit]
+Description=TaskChampion Sync Server
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/bash -c 'docker run -t -p XXXX:8080 -v "$HOME/.taskwarrior":/var/lib/taskchampion-sync-server ghcr.io/gothenburgbitfactory/taskchampion-sync-server:main'
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
