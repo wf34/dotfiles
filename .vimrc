@@ -158,3 +158,4 @@ endif
 
 "-- scratch.vim
   nnoremap <Leader><S-s> : Scratch<CR>
+  let g:scratch_height=0.7
