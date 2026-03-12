@@ -14,6 +14,9 @@ filetype indent off
 set nosmartindent
 set autoindent
 set nocindent
+"autocmd FileType python setlocal indentexpr=
+autocmd BufEnter,BufWinEnter *.py setlocal indentexpr= indentkeys=
+
 
 " Tabs
 set shiftwidth=2
@@ -29,6 +32,10 @@ set encoding=utf-8
 set showmatch
 set hlsearch
 set incsearch
+
+" vanilla completion
+set complete=.,b,t
+set completeopt=menu,menuone,noselect
 
 set number
 set ruler
@@ -77,7 +84,6 @@ nnoremap <silent> <S-Insert> "+p
 vnoremap <silent> <C-Insert> "+y
 
 call plug#begin('~/.vim/plugged')
-    Plug 'Valloric/YouCompleteMe', { 'on' : [] }
     Plug 'itchyny/lightline.vim'
     Plug 'rking/ag.vim'
     Plug 'jeffkreeftmeijer/vim-numbertoggle'
@@ -90,41 +96,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'mtth/scratch.vim'
 call plug#end()
 
-augroup load_ycm
-  autocmd!
-  autocmd InsertEnter * call plug#load('YouCompleteMe') | autocmd! load_ycm
-augroup END
-
 "## color
 set background=dark
 autocmd VimEnter * highlight Comment ctermbg=Black
 autocmd VimEnter * highlight Normal ctermbg=Black
 autocmd VimEnter * highlight NonText ctermbg=Black
-
-if has("gui_running")
-  set guioptions-=M
-  set guioptions-=T
-  set guioptions-=r
-  set guioptions-=L
-  set guifont=Iosevka\ Term\ Light\ 16
-  " Try it with no mouse
-  set mousehide
-  " in case rightclick needed
-  " set mousemodel = popup
-endif
-
-"-- YouCompleteMe
-    " let g:ycm_global_ycm_extra_conf =
-    "     \'~/.vim/bundle/YouCompleteMe/.ycm_conf.py'
-
-    " disable preview window appearence
-    set completeopt -=preview
-    let g:ycm_add_preview_to_completeopt = 0
-    " switch ycm off/on [next line rem - it's on]
-    " let g:loaded_youcompleteme = 1
-    let g:ycm_python_binary_path = 'python3'
-    let g:ycm_confirm_extra_conf = 0
-    let g:ycm_show_diagnostics_ui = 0
 
 "-- Vim-LaTeX
     let g:vimtex_latexmk_continuous = 0
