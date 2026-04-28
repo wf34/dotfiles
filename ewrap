@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+if [ -n "$TMUX" ] ; then
+    tmux split-window -h "vim \"$*\""
+else
+    $TERM -e "vim \"$*\""
+fi
