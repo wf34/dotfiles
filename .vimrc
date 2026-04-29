@@ -33,6 +33,9 @@ set showmatch
 set hlsearch
 set incsearch
 
+" keeping vim's buffer in `xclip`
+nnoremap <silent> <C-Z> :call system('setsid -f xclip -selection clipboard -i', getreg('+'))<CR>:call system('setsid -f xclip -selection primary -i', getreg('*'))<CR><C-Z>
+
 " vanilla completion
 set complete=.,b,t
 set completeopt=menu,menuone,noselect
