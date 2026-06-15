@@ -1,5 +1,9 @@
+Xft.dpi: 130
+Xft.hinting: 1
+Xft.antialias: 1
+
 xterm*faceName: Iosevka
-xterm*faceSize: 18
+xterm*faceSize: 14
 xterm*background: #000000
 xterm*foreground: #d3d3d3
 xterm*allowTitleOpts: false
