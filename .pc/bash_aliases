@@ -87,6 +87,7 @@ alias tpd='t project:idev'
 alias tpr='t project:research'
 alias tpy='t project:diary'
 alias tpa='t project:anniversaries'
+alias tpm='t project:ms-archive'
 
 # smart cd up
 function goUp
