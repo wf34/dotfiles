@@ -6,6 +6,13 @@ set noshowmode
 " primary *and* clipboard
 set clipboard=unnamed,unnamedplus
 
+" Tabs
+set shiftwidth=2
+set softtabstop=0
+set tabstop=2
+set smarttab
+set expandtab
+
 syntax on
 filetype plugin on
 filetype indent off
@@ -14,16 +21,12 @@ filetype indent off
 set nosmartindent
 set autoindent
 set nocindent
-"autocmd FileType python setlocal indentexpr=
+
 autocmd BufEnter,BufWinEnter *.py setlocal indentexpr= indentkeys=
+autocmd BufEnter,BufWinEnter *.go setlocal noexpandtab tabstop=8 shiftwidth=0 softtabstop=0
+set list
+set listchars=eol:¬,tab:│\ ,trail:·,nbsp:␣,extends:›,precedes:‹
 
-
-" Tabs
-set shiftwidth=2
-set softtabstop=0
-set tabstop=2
-set smarttab
-set expandtab
 " Minimal number of screen lines to keep above and below the cursor.
 set scrolloff=999
 " Use UTF-8.
