@@ -24,6 +24,7 @@ alias ll='ls -CF'
 export VISUAL="ewrap"
 
 # nnn's section
+export NNN_OPTS="e"
 n ()
 {
     # Block nesting of nnn in subshells
@@ -64,6 +65,8 @@ nnn_cd()
 trap nnn_cd EXIT
 
 [ -n "$NNNLVL" ] && PS1="N$NNNLVL $PS1"
+
+
 rinfo() {
   rosbag info "$@"
 }
@@ -100,6 +103,7 @@ for i in $(seq 2 10); do alias "..${i}"="goUp ${i}"; done
 
 # persistent history 
 HISTTIMEFORMAT="%d/%m/%y %T "
+export HISTCONTROL="ignorespace:ignoredups"
 log_bash_persistent_history()
 {
   [[
@@ -135,6 +139,7 @@ then
     stty -ixon
 fi
 
+export BROWSER=xdg-open
 export PATH="${PATH}:${HOME}/.local/bin"
 xset b off
 
