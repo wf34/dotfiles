@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+die() { echo "${0##*/}: $*" >&2; exit 1; }
+
+(( $# == 1 )) || die "usage: ${0##*/} <path/to/name.py>"
+
+path=$1
+[[ $path == *.py ]] || die "'$path' must end with .py"
+[[ -e $path ]] && die "'$path' already exists"
+
+name=${path##*/}                 # basename
+name=${name%.py}                 # drop extension
+name=${name//[^a-zA-Z0-9_]/_}    # make it a legal identifier
+[[ $name =~ ^[0-9] ]] && name=_$name
+
+mkdir -p "$(dirname "$path")"
+
+cat > "$path" <<EOF
+#!/usr/bin/env python3
+
+def $name():
+    pass
+
+if __name__ == '__main__':
+    $name()
+EOF
+
+chmod +x "$path"
+echo "created $path"
