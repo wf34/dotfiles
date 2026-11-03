@@ -3,12 +3,15 @@
 #
 #   $mod  = Mod4 (Super/Win) -> alt  (Option: sits where Win sits on a PC keyboard)
 #   $alt  = Mod1 (Alt)       -> cmd  (Command: sits where Alt sits, next to space)
+config-version = 2
 
 # Off until the config is proven to work.
-start-at-login = false
+start-at-login = true
 
 # i3 default `mouse_warping output`: the pointer follows focus across monitors.
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+automatically-unhide-macos-hidden-apps = false
 
 # i3: no gaps by default
 [gaps]
@@ -95,7 +98,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     alt-r = 'mode resize'
 
     # system mode
-    alt-end = 'mode system'
+    alt-shift-e = 'mode system'
 
 # resize window (you can also use the mouse for that)
 # i3 used "10 px or 10 ppt"; AeroSpace resizes tiles in points only.
@@ -114,6 +117,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     l = ['exec-and-forget pmset displaysleepnow', 'mode main']
     e = ['exec-and-forget osascript -e "tell application \"System Events\" to log out"', 'mode main']
     r = ['exec-and-forget osascript -e "tell application \"System Events\" to restart"', 'mode main']
+    s = ['exec-and-forget osascript -e "tell application \"System Events\" to sleep"', 'mode main']
     shift-s = ['exec-and-forget osascript -e "tell application \"System Events\" to shut down"', 'mode main']
 
     # back to normal: Enter or Escape
