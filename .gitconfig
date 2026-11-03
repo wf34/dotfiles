@@ -28,5 +28,10 @@
   prune = true
 
 [user]
-  name = wf34
-  email = wf34@users.noreply.github.com
+  useConfigOnly = true
+
+[includeIf "gitdir:~/projects"]
+  path = ~/.gitconfig-personal
+
+[includeIf "gitdir:~/work"]
+  path = ~/.gitconfig-work
