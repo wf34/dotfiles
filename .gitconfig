@@ -30,8 +30,8 @@
 [user]
   useConfigOnly = true
 
-[includeIf "gitdir:~/projects"]
+[includeIf "gitdir:~/projects/"]
   path = ~/.gitconfig-personal
 
-[includeIf "gitdir:~/work"]
+[includeIf "gitdir:~/work/"]
   path = ~/.gitconfig-work
