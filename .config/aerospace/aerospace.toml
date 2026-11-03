@@ -1,0 +1,121 @@
+# AeroSpace config, translated from ../../.i3/config
+# Reference: https://nikitabobko.github.io/AeroSpace/guide
+#
+#   $mod  = Mod4 (Super/Win) -> alt  (Option: sits where Win sits on a PC keyboard)
+#   $alt  = Mod1 (Alt)       -> cmd  (Command: sits where Alt sits, next to space)
+
+# Off until the config is proven to work.
+start-at-login = false
+
+# i3 default `mouse_warping output`: the pointer follows focus across monitors.
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# i3: no gaps by default
+[gaps]
+    inner.horizontal = 0
+    inner.vertical =   0
+    outer.left =       0
+    outer.bottom =     0
+    outer.top =        0
+    outer.right =      0
+
+[mode.main.binding]
+    # start a terminal (i3-sensible-terminal)
+    alt-enter = '''exec-and-forget osascript -e '
+    tell application "Terminal"
+        do script
+        activate
+    end tell'
+    '''
+
+    # kill focused window
+    alt-shift-q = 'close'
+
+    # change focus (i3 wraps focus by default)
+    alt-h = 'focus --boundaries-action wrap-around-the-workspace left'
+    alt-j = 'focus --boundaries-action wrap-around-the-workspace down'
+    alt-k = 'focus --boundaries-action wrap-around-the-workspace up'
+    alt-l = 'focus --boundaries-action wrap-around-the-workspace right'
+
+    # move focused window
+    alt-shift-h = 'move left'
+    alt-shift-j = 'move down'
+    alt-shift-k = 'move up'
+    alt-shift-l = 'move right'
+
+    # i3 `split h` / `split v` ($mod+$alt+h/v) -> join-with: wrap the focused
+    # window and its neighbour in that direction into a new container
+    alt-cmd-h = 'join-with left'
+    alt-cmd-j = 'join-with down'
+    alt-cmd-k = 'join-with up'
+    alt-cmd-l = 'join-with right'
+
+    # enter fullscreen mode for the focused container (toggle)
+    alt-f = 'fullscreen'
+
+    # change container layout (stacked, tabbed, toggle split)
+    alt-s = 'layout v_accordion'               # i3: layout stacking
+    alt-w = 'layout h_accordion'               # i3: layout tabbed
+    alt-e = 'layout tiles horizontal vertical' # i3: layout toggle split
+
+    # toggle tiling / floating
+    alt-shift-space = 'layout floating tiling'
+
+    # switch to workspace
+    alt-1 = 'workspace 1'
+    alt-2 = 'workspace 2'
+    alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
+    alt-7 = 'workspace 7'
+    alt-8 = 'workspace 8'
+    alt-9 = 'workspace 9'
+    alt-0 = 'workspace 0'
+
+    # move focused container to workspace
+    alt-shift-1 = 'move-node-to-workspace 1'
+    alt-shift-2 = 'move-node-to-workspace 2'
+    alt-shift-3 = 'move-node-to-workspace 3'
+    alt-shift-4 = 'move-node-to-workspace 4'
+    alt-shift-5 = 'move-node-to-workspace 5'
+    alt-shift-6 = 'move-node-to-workspace 6'
+    alt-shift-7 = 'move-node-to-workspace 7'
+    alt-shift-8 = 'move-node-to-workspace 8'
+    alt-shift-9 = 'move-node-to-workspace 9'
+    alt-shift-0 = 'move-node-to-workspace 0'
+
+    # reload the configuration file
+    alt-shift-c = 'reload-config'
+
+    # screenshots (maim -s | xclip): interactive selection straight to clipboard
+    alt-shift-s = 'exec-and-forget screencapture -i -c'
+
+    # resize mode
+    alt-r = 'mode resize'
+
+    # system mode
+    alt-end = 'mode system'
+
+# resize window (you can also use the mouse for that)
+# i3 used "10 px or 10 ppt"; AeroSpace resizes tiles in points only.
+[mode.resize.binding]
+    h = 'resize width -100'
+    j = 'resize height +100'
+    k = 'resize height -100'
+    l = 'resize width +100'
+
+    # back to normal: Enter or Escape
+    enter = 'mode main'
+    esc = 'mode main'
+
+# System lock (l), logout (e), reboot (r), shutdown (Shift+s)
+[mode.system.binding]
+    l = ['exec-and-forget pmset displaysleepnow', 'mode main']
+    e = ['exec-and-forget osascript -e "tell application \"System Events\" to log out"', 'mode main']
+    r = ['exec-and-forget osascript -e "tell application \"System Events\" to restart"', 'mode main']
+    shift-s = ['exec-and-forget osascript -e "tell application \"System Events\" to shut down"', 'mode main']
+
+    # back to normal: Enter or Escape
+    enter = 'mode main'
+    esc = 'mode main'
