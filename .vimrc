@@ -51,6 +51,9 @@ set noswapfile
 "line to indicate line length limit
 set colorcolumn=100
 
+" omni
+inoremap <C-f> <C-x><C-f>
+
 " Set Leader
 let mapleader = ","
 
